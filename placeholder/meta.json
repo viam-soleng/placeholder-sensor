@@ -1,0 +1,26 @@
+{
+  "$schema": "https://dl.viam.dev/module.schema.json",
+  "module_id": "bill:placeholder",
+  "visibility": "public",
+  "url": "https://github.com/viam-soleng/placeholder-sensor",
+  "description": "This sensor will just return what is provided in it's attributes to be used as a placeholder in applications where data isn't yet available from a sensor module. Useful for testing and development.",
+  "models": [
+    {
+      "api": "rdk:component:sensor",
+      "model": "bill:placeholder:sensor",
+      "short_description": "Return what is provided in it's attributes to be used as a placeholder.",
+      "markdown_link": "README.md#model-billplaceholdersensor"
+    }
+  ],
+  "entrypoint": "bin/placeholder",
+  "first_run": "",
+  "build": {
+    "build": "make module.tar.gz",
+    "setup": "make setup",
+    "path": "bin/module.tar.gz",
+    "arch": [
+      "linux/amd64",
+      "linux/arm64"
+    ]
+  }
+}
