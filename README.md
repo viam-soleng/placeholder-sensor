@@ -32,10 +32,10 @@ The following attributes are available for this model:
 ```json
 {
   "readings": {
-    "location_details": ["Oracle Main Concourse"],
+    "location_details": ["Main Concourse"],
     "concession_options": ["Beer", "Wine", "Seltzers", "Cocktails"],
     "estimated_wait_time_min": "NONE",
-    "location_name": "Section 107: Jameson Bar",
+    "location_name": "Section 123: Old Joe's Bar",
     "count_in_view": 0,
     "location_open": true
   }
