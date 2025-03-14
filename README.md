@@ -1,18 +1,21 @@
-# Module placeholder 
+# Module placeholder
 
-Provide a description of the purpose of the module and any relevant information.
+This module provides a simple placeholder sensor that returns configured data without performing any actual sensing. It's useful for testing, development, or situations where you need to return static or pre-defined data.
 
 ## Model bill:placeholder:sensor
 
-Provide a description of the model and any relevant information.
+A configurable sensor that returns any data structure specified in its configuration. This sensor acts as a data pass-through, returning whatever data is provided in its configuration when readings are requested.
 
 ### Configuration
 The following attribute template can be used to configure this model:
 
 ```json
 {
-"attribute_1": <float>,
-"attribute_2": <string>
+  "readings": {
+    "key1": <value1>,
+    "key2": <value2>,
+    ...
+  }
 }
 ```
 
@@ -20,31 +23,50 @@ The following attribute template can be used to configure this model:
 
 The following attributes are available for this model:
 
-| Name          | Type   | Inclusion | Description                |
-|---------------|--------|-----------|----------------------------|
-| `attribute_1` | float  | Required  | Description of attribute 1 |
-| `attribute_2` | string | Optional  | Description of attribute 2 |
+| Name       | Type                | Inclusion | Description                                     |
+|------------|---------------------|-----------|------------------------------------------------|
+| `readings` | map[string]interface{} | Required  | A map of key-value pairs to return as readings |
 
 #### Example Configuration
 
 ```json
 {
-  "attribute_1": 1.0,
-  "attribute_2": "foo"
+  "readings": {
+    "location_details": ["Oracle Main Concourse"],
+    "concession_options": ["Beer", "Wine", "Seltzers", "Cocktails"],
+    "estimated_wait_time_min": "NONE",
+    "location_name": "Section 107: Jameson Bar",
+    "count_in_view": 0,
+    "location_open": true
+  }
 }
 ```
 
+### Readings
+
+The sensor returns exactly what is specified in the `readings` configuration field. This allows for flexible data structures to be returned without modifying the sensor code.
+
 ### DoCommand
 
-If your model implements DoCommand, provide an example payload of each command that is supported and the arguments that can be used. If your model does not implement DoCommand, remove this section.
+The sensor implements a simple DoCommand that returns the current configuration.
 
 #### Example DoCommand
 
 ```json
+{}
+```
+
+Response:
+
+```json
 {
-  "command_name": {
-    "arg1": "foo",
-    "arg2": 1
+  "readings": {
+    "location_details": ["Oracle Main Concourse"],
+    "concession_options": ["Beer", "Wine", "Seltzers", "Cocktails"],
+    "estimated_wait_time_min": "NONE",
+    "location_name": "Section 107: Jameson Bar",
+    "count_in_view": 0,
+    "location_open": true
   }
 }
 ```
