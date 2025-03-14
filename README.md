@@ -46,27 +46,15 @@ The following attributes are available for this model:
 
 The sensor returns exactly what is specified in the `readings` configuration field. This allows for flexible data structures to be returned without modifying the sensor code.
 
-### DoCommand
-
-The sensor implements a simple DoCommand that returns the current configuration.
-
-#### Example DoCommand
-
-```json
-{}
-```
-
 Response:
 
 ```json
-{
-  "readings": {
-    "location_details": ["Oracle Main Concourse"],
+  {
+    "location_details": ["Main Concourse"],
     "concession_options": ["Beer", "Wine", "Seltzers", "Cocktails"],
     "estimated_wait_time_min": "NONE",
-    "location_name": "Section 107: Jameson Bar",
+    "location_name": "Section 123: Old Joe's Bar",
     "count_in_view": 0,
     "location_open": true
   }
-}
 ```
